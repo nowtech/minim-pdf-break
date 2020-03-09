@@ -3,7 +3,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { PDFExport } from '@progress/kendo-react-pdf';
 
-import Content from './content.jsx';
+// import Content from './content.jsx';
+// import Content from './content-div.jsx';
+// import Content from './content-break.jsx';
+// import Content from './content-keepTogether.jsx';
+import Content from './content-deep-nested.jsx';
 
 class App extends React.Component {
     pdfExportComponent;
@@ -23,10 +27,12 @@ class App extends React.Component {
                 <PDFExport
                     keepTogether="p"
                     paperSize="A4"
+                    avoidLinks={true}
+                    forcePageBreak=".page-break"
                     margin="2cm"
                     ref={(component) => this.pdfExportComponent = component}
                 >
-                    <Content />
+                  <Content />
                 </PDFExport>
             </div>
         );
